@@ -1,6 +1,5 @@
-import Dashboard from "./components/Dashboard";
-import Login from "./components/LogIn";
-import Register from "./components/Register";
+
+import Home from "./pages/Home/Home";
 
 
 function App() {
@@ -8,9 +7,7 @@ function App() {
 
   return (
     <>
-      <Login />
-      <Dashboard />
-      <Register />
+    <Home />
     </>
   )
 }
