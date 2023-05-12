@@ -6,12 +6,16 @@ import {
   Button
 } from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
+import NavBar from '../../components/NavBar';
 
 
 const Contact = () => {
   const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log("Here", data);
+  const onSubmit = (data) => console.log("Here", data);
+  
   return (
+    <>
+    <NavBar />
     <Flex w="100%" align="center" justify="center">
 
             <Box w="360px" p="8% 0 0">
@@ -89,7 +93,8 @@ const Contact = () => {
                 </Box>
             </Box>
         </Flex>
+        </>
   )
 }
 
-export default Contact
+export default Contact;

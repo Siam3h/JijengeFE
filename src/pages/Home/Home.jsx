@@ -14,7 +14,7 @@ const Home = () => {
             and an endless search for sacco shares&apos; buyers and<br />sellers as you&apos;ll find instant buyers and sellers of sacco<br /> shares on our platform.
           </Text>
           </Box>
-          <Link href="/register"><Button mt="55px">Join Us</Button></Link>
+          <Link href="/register"><Button  bg="#17a589" color="white" mt="55px">Join Us</Button></Link>
         </Box>
         <Box>
           <Image h="450px" src="../../public/2MoneyIllustration.jpg" />

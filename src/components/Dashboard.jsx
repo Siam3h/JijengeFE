@@ -14,13 +14,40 @@ import {
     Button,
     Tooltip,
     Flex,
-    Image
+    Image,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    Select,
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverHeader,
+    PopoverBody,
+    PopoverFooter,
+    PopoverArrow,
+    PopoverCloseButton,
+    ButtonGroup
 } from '@chakra-ui/react';
 import NavBar from "../components/NavBar";
 
+
 const Dashboard = () => {
 
-    const isProfileCreated = false;
+    const isProfileCreated = true;
+
+    const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
+
+    const {
+        isOpen: isOpenPopOver,
+        onToggle: onTogglePopOver,
+        onClose: onClosePopOver,
+    } = useDisclosure()
 
     return (
         <>
@@ -45,12 +72,32 @@ const Dashboard = () => {
                     </Flex>
                     <Box>
                         <Button
+                            onClick={onOpen}
                             bg="#17a589"
                             color="white"
                             _hover={{ bg: "#17a589", color: "white" }}
                         >
                             {isProfileCreated ? "Add New Sacco " : "Create Sacco Profile"}
                         </Button>
+                        <Modal onClose={onClose} isOpen={isOpen} isCentered>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>Create Your Sacco Profile</ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody>
+                                    <Select placeholder='Select Sacco'>
+                                        <option value='option1' size='md'>Stima Sacco</option>
+                                        <option value='option2' size='md'>Magereza Sacco</option>
+                                        <option value='option3' size='md'>Mwalimu Sacco</option>
+                                        <option value='option3' size='md'>Unaitas Sacco</option>
+                                        <option value='option3' size='md'>AAK Sacco</option>
+                                    </Select>
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button bg="#17a589" color="white" onClick={onClose}>Add Sacco</Button>
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal>
                     </Box>
                 </Flex>
                 {isProfileCreated ?
@@ -68,33 +115,96 @@ const Dashboard = () => {
                                     <Tr>
                                         <Td>Stima Sacco</Td>
                                         <Td>5000</Td>
-                                        <Td ><IconButton w='1px' h='10px' borderRadius="50%" >
-                                            <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
-                                                <ArrowRightIcon />
-                                            </Center>
-                                        </IconButton></Td>
+                                        <Td ><Popover
+                                                returnFocusOnClose={false}
+                                                isOpenPopOver={isOpen}
+                                                onClosePopOver={onClose}
+                                                placement='right'
+                                                closeOnBlur={false}
+                                            >
+                                                <PopoverTrigger>
+                                                    <IconButton w='1px' h='10px' borderRadius="50%" >
+                                                        <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
+                                                            <ArrowRightIcon onClick={onTogglePopOver} />
+                                                        </Center>
+                                                    </IconButton>
+                                                </PopoverTrigger>
+                                                <PopoverContent>
+                                                    <PopoverHeader textAlign="center" fontWeight='semibold'>Trade your shares</PopoverHeader>
+                                                    <PopoverArrow />
+                                                    <PopoverCloseButton />
+                                                    <PopoverFooter display='flex' justifyContent='center' gap="45px">
+                                                        <ButtonGroup size='sm'>
+                                                            <Button bg="#17a589" color="white">Buy</Button>
+                                                            <Button colorScheme='red'>Sell</Button>
+                                                        </ButtonGroup>
+                                                    </PopoverFooter>
+                                                </PopoverContent>
+                                            </Popover></Td>
                                     </Tr>
                                     <Tr>
                                         <Td>Magereza Sacco</Td>
                                         <Td>6575</Td>
 
                                         <Td>
-                                            <IconButton w='1px' h='10px' borderRadius="50%" >
-                                                <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
-                                                    <ArrowRightIcon />
-                                                </Center>
-                                            </IconButton>
+                                        <Popover
+                                                returnFocusOnClose={false}
+                                                isOpenPopOver={isOpen}
+                                                onClosePopOver={onClose}
+                                                placement='right'
+                                                closeOnBlur={false}
+                                            >
+                                                <PopoverTrigger>
+                                                    <IconButton w='1px' h='10px' borderRadius="50%" >
+                                                        <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
+                                                            <ArrowRightIcon onClick={onTogglePopOver} />
+                                                        </Center>
+                                                    </IconButton>
+                                                </PopoverTrigger>
+                                                <PopoverContent>
+                                                    <PopoverHeader textAlign="center" fontWeight='semibold'>Trade your shares</PopoverHeader>
+                                                    <PopoverArrow />
+                                                    <PopoverCloseButton />
+                                                    <PopoverFooter display='flex' justifyContent='center' gap="45px">
+                                                        <ButtonGroup size='sm'>
+                                                            <Button bg="#17a589" color="white">Buy</Button>
+                                                            <Button colorScheme='red'>Sell</Button>
+                                                        </ButtonGroup>
+                                                    </PopoverFooter>
+                                                </PopoverContent>
+                                            </Popover>
                                         </Td>
                                     </Tr>
                                     <Tr>
                                         <Td>Mwalimu Sacco</Td>
                                         <Td>2550</Td>
                                         <Td>
-                                            <IconButton w='1px' h='10px' borderRadius="50%" >
-                                                <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
-                                                    <ArrowRightIcon />
-                                                </Center>
-                                            </IconButton>
+                                            <Popover
+                                                returnFocusOnClose={false}
+                                                isOpenPopOver={isOpen}
+                                                onClosePopOver={onClose}
+                                                placement='right'
+                                                closeOnBlur={false}
+                                            >
+                                                <PopoverTrigger>
+                                                    <IconButton w='1px' h='10px' borderRadius="50%" >
+                                                        <Center w='25px' h='25px' p="15px" borderRadius="50%" bg="#17a589" color='white'>
+                                                            <ArrowRightIcon onClick={onTogglePopOver} />
+                                                        </Center>
+                                                    </IconButton>
+                                                </PopoverTrigger>
+                                                <PopoverContent>
+                                                    <PopoverHeader textAlign="center" fontWeight='semibold'>Trade your shares</PopoverHeader>
+                                                    <PopoverArrow />
+                                                    <PopoverCloseButton />
+                                                    <PopoverFooter display='flex' justifyContent='center' gap="45px">
+                                                        <ButtonGroup size='sm'>
+                                                            <Button bg="#17a589" color="white">Buy</Button>
+                                                            <Button colorScheme='red'>Sell</Button>
+                                                        </ButtonGroup>
+                                                    </PopoverFooter>
+                                                </PopoverContent>
+                                            </Popover>
                                         </Td>
                                     </Tr>
 
@@ -108,4 +218,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard;
