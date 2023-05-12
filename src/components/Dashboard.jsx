@@ -21,6 +21,7 @@ import NavBar from "../components/NavBar";
 const Dashboard = () => {
 
     const isProfileCreated = false;
+
     return (
         <>
             <Box boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)" p="25px" m="15px">
