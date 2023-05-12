@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ArrowRightIcon, CheckCircleIcon } from '@chakra-ui/icons';
 import {
     Center,
@@ -28,11 +29,11 @@ import {
     PopoverTrigger,
     PopoverContent,
     PopoverHeader,
-    PopoverBody,
     PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    ButtonGroup
+    ButtonGroup,
+    Link
 } from '@chakra-ui/react';
 import NavBar from "../components/NavBar";
 
@@ -41,7 +42,7 @@ const Dashboard = () => {
 
     const isProfileCreated = true;
 
-    const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     const {
         isOpen: isOpenPopOver,
@@ -135,8 +136,8 @@ const Dashboard = () => {
                                                     <PopoverCloseButton />
                                                     <PopoverFooter display='flex' justifyContent='center' gap="45px">
                                                         <ButtonGroup size='sm'>
-                                                            <Button bg="#17a589" color="white">Buy</Button>
-                                                            <Button colorScheme='red'>Sell</Button>
+                                                        <Link href="/buy"><Button bg="#17a589" color="white">Buy</Button></Link>
+                                                        <Link href="/sell"><Button colorScheme='red'>Sell</Button></Link>
                                                         </ButtonGroup>
                                                     </PopoverFooter>
                                                 </PopoverContent>
