@@ -3,8 +3,6 @@ import {
   Flex,
   Heading,
   Input,
-  Text,
-  Link,
   Button
 } from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
