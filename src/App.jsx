@@ -7,7 +7,7 @@ import LogIn from "./components/LogIn";
 import Dashboard from "./components/Dashboard";
 import Register from "./components/Register";
 import Buy from "./components/Buy";
-import Sell from "./components/sell";
+import Sell from "./components/Sell";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box } from "@chakra-ui/react";
 
